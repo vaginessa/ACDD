@@ -71,7 +71,7 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion "24.0.2"
+    buildToolsVersion "25.0.2"
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
@@ -88,7 +88,7 @@ android {
             resources.srcDirs = ['src']
             aidl.srcDirs = ['src']
             renderscript.srcDirs = ['src']
-            res.srcDirs = ['res']
+            res.srcDirs = ['res','res-public']
             assets.srcDirs = ['assets']
             jniLibs.srcDir 'libs'
         }
@@ -113,6 +113,7 @@ android {
             signingConfig signingConfigs.config
         }
     }
+   
 }
 task acddWrapBundle << {
 
@@ -122,5 +123,9 @@ task acddWrapBundle << {
         args "$projectDir/libs/armeabi".toString(), "$projectDir/assets/bundle-info.json".toString(),"$projectDir/.bundleCache"
     }
 }
-//assembleDebug.dependsOn(acddWrapBundle)
-//assembleRelease.dependsOn(acddWrapBundle)
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'assembleDebug'||task.name == 'assembleRelease') {
+        task.dependsOn 'acddWrapBundle'
+    }
+}
