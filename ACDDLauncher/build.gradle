@@ -114,17 +114,31 @@ android {
         }
     }
 }
-task acddWrapBundle << {
-
-    javaexec {
-        classpath "$projectDir/ACDDExt.jar"
-        main = 'org.acdd.ext.bundleInfo.maker.BundleMakeBooter'
-        args "$projectDir/libs/armeabi".toString(), "$projectDir/assets/bundle-info.json".toString(),"$projectDir/.bundleCache"
-    }
-}
+//task acddWrapBundle << {
+//
+//    javaexec {
+//        classpath "$projectDir/ACDDExt.jar"
+//        main = 'org.acdd.ext.bundleInfo.maker.BundleMakeBooter'
+//        args "$projectDir/libs/armeabi".toString(), "$projectDir/assets/bundle-info.json".toString(),"$projectDir/.bundleCache"
+//    }
+//}
 
 tasks.whenTaskAdded { task ->
     if (task.name == 'assembleDebug'||task.name == 'assembleRelease') {
-        task.dependsOn 'acddWrapBundle'
+        task.dependsOn 'acddPluginBuildTask'
     }
 }
+
+buildscript {
+    repositories {
+        maven {
+            url 'file:../lib'
+        }
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.acdd:buildtools:buildtools-1.0'
+    }
+}
+apply plugin: 'org.acdd.buildtools'
