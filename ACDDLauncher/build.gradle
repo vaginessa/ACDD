@@ -114,14 +114,6 @@ android {
         }
     }
 }
-//task acddWrapBundle << {
-//
-//    javaexec {
-//        classpath "$projectDir/ACDDExt.jar"
-//        main = 'org.acdd.ext.bundleInfo.maker.BundleMakeBooter'
-//        args "$projectDir/libs/armeabi".toString(), "$projectDir/assets/bundle-info.json".toString(),"$projectDir/.bundleCache"
-//    }
-//}
 
 tasks.whenTaskAdded { task ->
     if (task.name == 'assembleDebug'||task.name == 'assembleRelease') {
@@ -132,13 +124,13 @@ tasks.whenTaskAdded { task ->
 buildscript {
     repositories {
         maven {
-            url 'file:../lib'
+            url 'https://dl.bintray.com/bunnyblue/ACDD'
         }
         mavenCentral()
         jcenter()
     }
     dependencies {
-        classpath 'org.acdd:buildtools:buildtools-1.0'
+        classpath 'org.acdd:buildtools:2.0.0'
     }
 }
 apply plugin: 'org.acdd.buildtools'
