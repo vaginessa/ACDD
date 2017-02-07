@@ -30,7 +30,7 @@ apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(include: '*.jar', dir: 'libs')
-    compile project(':ACDDCore')
+    compile project(':framework')
     compile 'com.jakewharton:butterknife:7.0.1'
 }
 def acddGitVersionName = { ->

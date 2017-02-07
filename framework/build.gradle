@@ -11,11 +11,11 @@ if(file(project.rootDir.getAbsolutePath()+File.separator+'local.properties').exi
 }
 ext {
     bintrayRepo = 'ACDD'
-    bintrayName = 'ACDDCore'
+    bintrayName = 'framework'
 
     publishedGroupId = 'org.acdd'
-    libraryName = 'ACDDCore'
-    artifact = 'ACDDCore'
+    libraryName = 'framework'
+    artifact = 'framework'
 
     libraryDescription = 'Android Plugin Framework base on OSGI'
 
@@ -115,12 +115,13 @@ install {
         // This generates POM.xml with proper parameters
         pom {
             project {
+                name 'framework'
                 packaging 'aar'
                 groupId publishedGroupId
                 artifactId artifact
 
                 // Add your description here
-                name libraryName
+               // name libraryName
                 description libraryDescription
                 url siteUrl
 

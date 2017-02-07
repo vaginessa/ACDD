@@ -26,5 +26,5 @@
  */
 
 include ':ACDDLauncher'
-include ':ACDDCore'
+include ':framework'
 include ':buildtools'
