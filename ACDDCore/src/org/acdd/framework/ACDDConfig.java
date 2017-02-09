@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file ACDDConfig.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,27 @@
  *
  *
  */
+package org.acdd.framework;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+/**
+ * @author BunnyBlue
+ *
+ */
+public class ACDDConfig {
+    /***延时启动配*****/
+    public static String[] DELAY = new String[]{};
+    public static String[] AUTO = new String[]{};
+    public static String[] STORE = new String[]{};
+
+    /**plugin preload  dir ******/
+    public static String PRELOAD_DIR = "armeabi";
+    public  static  String BUNDLE_PREFIX_COM="lib/"+ ACDDConfig.PRELOAD_DIR+"/libcom_";
+    public  static  String BUNDLE_PREFIX_CN="lib/"+ ACDDConfig.PRELOAD_DIR+"/libcn_";
+    /**enable opt dex on ART ****/
+    public static boolean  optART=true;
+    /******enable sub process******/
+    public static boolean  subProcessEnable=false;
+    public static boolean stubModeEnable = false;//2.3暂不支持STUB
+
+
+}

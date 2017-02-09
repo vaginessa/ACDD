@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file Logger.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,40 @@
  *
  *
  */
+package org.acdd.log;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+public interface Logger {
+    void debug(String message);
+
+    void error(String message);
+
+    void error(String message, Throwable th);
+
+    void error(StringBuffer stringBuffer, Throwable th);
+
+    void fatal(String message);
+
+    void fatal(String message, Throwable th);
+
+    void info(String message);
+
+    boolean isDebugEnabled();
+
+    boolean isErrorEnabled();
+
+    boolean isFatalEnabled();
+
+    boolean isInfoEnabled();
+
+    boolean isVerboseEnabled();
+
+    boolean isWarnEnabled();
+
+    void verbose(String message);
+
+    void warn(String message);
+
+    void warn(String message, Throwable th);
+
+    void warn(StringBuffer stringBuffer, Throwable th);
+}

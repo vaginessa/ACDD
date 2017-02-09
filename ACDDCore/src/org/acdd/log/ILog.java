@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file ILog.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,24 @@
  *
  *
  */
+package org.acdd.log;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+/**
+ * @author BunnyBlue
+ *
+ */
+
+
+public interface ILog {
+    void d(String tag, String msg);
+
+    void e(String tag, String msg);
+
+    void e(String tag, String msg, Throwable th);
+
+    void i(String tag, String msg);
+
+    void v(String tag, String msg);
+
+    void w(String tag, String msg);
+}

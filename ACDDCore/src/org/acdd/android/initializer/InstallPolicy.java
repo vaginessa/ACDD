@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file InstallPolicy.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,10 @@
  *
  *
  */
+package org.acdd.android.initializer;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+
+public class InstallPolicy {
+    public static boolean install_when_findclass = true;
+    public static boolean install_when_oncreate = true;
+}

@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file IMonitor.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,10 @@
  *
  *
  */
+package org.acdd.log;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+public interface IMonitor {
+    void trace(Integer monitorType, String bundleName, String voidTag, String info);
+
+    void trace(String monitorType, String bundleName, String voidTag, String info);
+}

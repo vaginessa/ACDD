@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file RuntimeVariables.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,16 @@
  *
  *
  */
+package org.acdd.runtime;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+import android.app.Application;
+import android.content.res.Resources;
+
+public class RuntimeVariables {
+    public static Application androidApplication;
+    public static DelegateClassLoader delegateClassLoader;
+    public static Resources delegateResources;
+    public  static  boolean inSubProcess=false;
+    public  static String currentProcessName;
+
+}

@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file package-info.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -25,6 +25,11 @@
  *
  */
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+/**
+ * @author BunnyBlue
+ */
+/**
+ * @author BunnyBlue
+ *
+ */
+package org.acdd.util;

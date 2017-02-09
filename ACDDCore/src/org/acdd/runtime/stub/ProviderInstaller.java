@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file ProviderInstaller.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -25,6 +25,33 @@
  *
  */
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+package org.acdd.runtime.stub;
+
+import android.content.Context;
+import android.content.pm.ProviderInfo;
+import android.util.Log;
+
+import org.acdd.hack.ACDDHacks;
+import org.acdd.hack.AndroidHack;
+import org.acdd.hack.Hack;
+
+import java.util.Collection;
+import java.util.List;
+
+/**
+ * Used for  Stub Mode.
+ */
+public class ProviderInstaller {
+    public static void installContentProviders(Context context, Collection<ProviderInfo> pluginProviderInfos) {
+        try {
+            ACDDHacks.ActivityThread.method("installContentProviders",new Class[]{Context.class, List.class})
+                    .invoke(AndroidHack.getActivityThread(), new Object[]{context, pluginProviderInfos});
+        } catch (Hack.HackDeclaration.HackAssertionException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.e("ProviderInstaller","installContentProviders");
+
+    }
+}

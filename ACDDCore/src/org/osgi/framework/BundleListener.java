@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file BundleListener.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -25,6 +25,33 @@
  *
  */
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+package org.osgi.framework;
+
+import java.util.EventListener;
+
+/**
+ * A <code>BundleEvent</code> listener. <code>BundleListener</code> is a
+ * listener interface that may be implemented by a bundle developer. When a
+ * <code>BundleEvent</code> is fired, it is asynchronously delivered to a
+ * <code>BundleListener</code>. The Framework delivers
+ * <code>BundleEvent</code> objects to a <code>BundleListener</code> in
+ * order and must not concurrently call a <code>BundleListener</code>.
+ * <p>
+ * A <code>BundleListener</code> object is registered with the Framework using
+ * the {@link BundleContext#addBundleListener} method.
+ * <code>BundleListener</code>s are called with a <code>BundleEvent</code>
+ * object when a bundle has been installed, resolved, started, stopped, updated,
+ * unresolved, or uninstalled.
+ *
+ * @version $Revision: 5673 $
+ * @see BundleEvent
+ */
+
+public interface BundleListener extends EventListener {
+    /**
+     * Receives notification that a bundle has had a lifecycle change.
+     *
+     * @param event The <code>BundleEvent</code>.
+     */
+    void bundleChanged(BundleEvent event);
+}

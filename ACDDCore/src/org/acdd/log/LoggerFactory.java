@@ -1,6 +1,6 @@
 /*
  * ACDD Project
- * file settings.gradle  is  part of ACCD
+ * file LoggerFactory.java  is  part of ACCD
  * The MIT License (MIT)  Copyright (c) 2015 Bunny Blue,achellies.
  *
  *
@@ -24,7 +24,27 @@
  *
  *
  */
+package org.acdd.log;
 
-include ':ACDDLauncher'
-include ':ACDDCore'
-include ':buildtools'
+public class LoggerFactory {
+    public static int logLevel;
+
+    static {
+        logLevel = 1;
+    }
+
+    public static Logger getInstance(String tag) {
+        return getInstance(tag, null);
+    }
+
+    public static Logger getInstance(Class<?> cls) {
+        return getInstance(null, cls);
+    }
+
+    private static Logger getInstance(String tag, Class<?> cls) {
+        if (cls != null) {
+            return new AndroidLogger(cls);
+        }
+        return new AndroidLogger(tag);
+    }
+}
